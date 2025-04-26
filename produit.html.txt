@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Ceinture Chauffante - ThermoBelt</title>
+    <link rel="stylesheet" href="css/tesponsive.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <!-- Même header que index.html -->
+        <div class="logo">
+            <img src="assets/images/assest/logo.png" alt="Menstura" width="300">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="#features">Avantages</a></li>
+                <li><a href="panier.html">Panier (<span id="cart-count">0</span>)</a></li>
+            </ul>
+        </nav>
+        </header>
+
+    <main class="produit-details">
+        <div class="produit-gallery">
+            <img src="assets/images/assest/produit1.webp" alt="Ceinture Chauffante" id="main-image" width="500">
+        </div>
+        <div class="produit-info">
+            <h1>Ceinture Chauffante pour Femme</h1>
+            <p class="prix">49.99€</p>
+            <div class="options">
+                <label>Couleur :</label>
+                <select id="couleur">
+                    <option>Noir</option>
+                    <option>Rose</option>
+                </select>
+                <label>Taille :</label>
+                <select id="taille">
+                    <option>S</option>
+                    <option>M</option>
+                    <option>L</option>
+                </select>
+            </div>
+            <button id="ajouter-panier" class="btn">Ajouter au Panier</button>
+            <div class="description">
+                <h3>Description</h3>
+                <p>Ceinture chauffante infrarouge avec 3 niveaux de température. Autonomie : 8 heures.</p>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/cart.js"></script>
+    <script>
+        document.getElementById("ajouter-panier").addEventListener("click", () => {
+            const produit = {
+                id: 1,
+                nom: "Ceinture Chauffante",
+                prix: 49.99,
+                couleur: document.getElementById("couleur").value,
+                taille: document.getElementById("taille").value,
+                quantite: 1
+            };
+            ajouterAuPanier(produit);
+            alert("Produit ajouté au panier !");
+        });
+    </script>
+</body>
+</html>

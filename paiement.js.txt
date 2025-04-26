@@ -1,0 +1,33 @@
+// Stripe
+const stripe = Stripe("VOTRE_CLE_PUBLIQUE_STRIPE");
+document.getElementById("stripe-paiement").addEventListener("click", async () => {
+    const response = await fetch("/creer-session-paiement", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ panier }),
+    });
+    const session = await response.json();
+    await stripe.redirectToCheckout({ sessionId: session.id });
+});
+
+// PayPal
+paypal.Buttons({
+    createOrder: (data, actions) => {
+        return actions.order.create({
+            purchase_units: [{
+                amount: {
+                    value: calculerTotalPanier(),
+                },
+            }],
+        });
+    },
+    onApprove: (data, actions) => {
+        return actions.order.capture().then(() => {
+            window.location.href = "confirmation.html";
+        });
+    },
+}).render("#paypal-button-container");
+
+function calculerTotalPanier() {
+    return panier.reduce((total, item) => total + item.prix * item.quantite, 0);
+}

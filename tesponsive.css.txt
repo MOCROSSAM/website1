@@ -1,0 +1,114 @@
+/* ==================== */
+/* RESPONSIVE DESIGN */
+/* ==================== */
+
+/* Tablettes (768px - 1024px) */
+@media (max-width: 1024px) {
+    /* Header */
+    header {
+        padding: 2rem 6%;
+    }
+
+    /* Hero Section */
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 10% 5%;
+    }
+
+    .hero-image {
+        margin-top: 2rem;
+    }
+
+    /* Features */
+    .features {
+        flex-wrap: wrap;
+    }
+
+    .feature-card {
+        width: 45%;
+        margin-bottom: 1.5rem;
+    }
+
+    /* Produit */
+    .produit-details {
+        flex-direction: column;
+        padding: 5%;
+    }
+
+    .produit-gallery img {
+        width: 100%;
+    }
+}
+
+/* Mobiles (<= 767px) */
+@media (max-width: 767px) {
+    /* Header */
+    header {
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    nav ul {
+        margin-top: 1rem;
+        justify-content: center;
+    }
+
+    nav ul li {
+        margin: 0 0.5rem;
+    }
+
+    /* Hero */
+    .hero-text h1 {
+        font-size: 1.8rem;
+    }
+
+    /* Features */
+    .feature-card {
+        width: 100%;
+    }
+
+    /* Panier */
+    .panier-item {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .panier-item img {
+        margin: 0 auto 1rem;
+    }
+
+    /* Paiement */
+    .paiement-options {
+        flex-direction: column;
+    }
+
+    #stripe-button, #paypal-button-container {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+}
+
+/* Très petits mobiles (<= 480px) */
+@media (max-width: 480px) {
+    /* Texte */
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .btn {
+        padding: 10px 15px;
+        font-size: 0.9rem;
+    }
+
+    /* Produit */
+    .produit-info .prix {
+        font-size: 1.3rem;
+    }
+
+    /* Options */
+    .options select {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+}

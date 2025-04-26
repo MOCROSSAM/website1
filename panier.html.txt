@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <!-- Lien vers les fichiers CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/tesponsive.css">
+</head>
+<body>
+    <header>
+        <!-- Même header que index.html -->
+        <div class="logo">
+            <img src="assets/images/assest/logo.png" alt="Menstura" width="300">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="#features">Avantages</a></li>
+                <li><a href="panier.html">Panier (<span id="cart-count">0</span>)</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="panier-container">
+        <h1>Votre Panier</h1>
+        <div id="panier-items" class="panier-items"></div>
+        <div class="total-section">
+            <p>Total : <span id="panier-total">0.00€</span></p>
+            <a href="paiement.html" class="btn">Passer la commande</a>
+        </div>
+    </main>
+
+    <script src="js/cart.js"></script>
+    <script>
+        // Afficher le panier au chargement
+        document.addEventListener('DOMContentLoaded', () => {
+            const panier = JSON.parse(localStorage.getItem('panier')) || [];
+            const container = document.getElementById('panier-items');
+            let total = 0;
+
+            container.innerHTML = panier.map(item => {
+                total += item.prix * item.quantite;
+                return `
+                   
+                `;
+            }).join('');
+
+            document.getElementById('panier-total').textContent = total.toFixed(2) + '€';
+        });
+
+        document.addEventListener('DOMContentLoaded', afficherPanier);
+    </script>
+</body>
+</html>
